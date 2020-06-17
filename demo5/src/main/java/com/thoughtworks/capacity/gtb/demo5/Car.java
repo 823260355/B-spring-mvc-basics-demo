@@ -13,9 +13,9 @@ public class Car {
 
   @NotNull(message = "id must not be null")
   private Integer id;
-  @NotBlank(message = "type must not be type")
+  @NotBlank
   private String type;
-  @NotBlank(message = "type must not be color")
+  @NotBlank
   private String color;
 }
 
