@@ -20,11 +20,11 @@ public class CarController {
     this.carService = carService;
   }
 
-  // GET /cars
+  // GET /cars?color=red
   @RequestMapping(value = "/cars", method = RequestMethod.GET)
   @ResponseBody
-  public List<Car> getAllCars() {
-    return carService.getAllCars();
+  public List<Car> getAllCars(@RequestParam(name = "color", required = false) String color) {
+    return carService.getCars(color, null);
   }
 
   // POST /cars
@@ -33,13 +33,6 @@ public class CarController {
   @ResponseStatus(HttpStatus.CREATED)
   public void createCar(@RequestBody Car car) {
     carService.createCar(car);
-  }
-
-  // GET /car?id=3
-  @RequestMapping(value = "/car", method = RequestMethod.GET)
-  @ResponseBody
-  public Car getCarById(@RequestParam("id") Integer id) {
-    return carService.getCarById(id);
   }
 
   // GET /cars/3
